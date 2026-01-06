@@ -1,4 +1,6 @@
+use std::collections::HashMap;
 use serde::Deserialize;
+
  
 
 #[derive(Debug, Deserialize)]
@@ -20,32 +22,52 @@ pub struct PlayState {
 }
 
 #[derive(Debug, Deserialize, Clone)]
-pub struct NowPlayingItem {
+ pub struct NowPlayingItem {
     #[serde(rename = "Id")]
     pub id: String,
+
     #[serde(rename = "Name")]
     pub name: String,
+
     #[serde(rename = "Artists")]
     pub artists: Option<Vec<String>>,
+
     #[serde(rename = "RunTimeTicks")]
     pub runtime_ticks: Option<i64>,
+
     #[serde(rename = "AlbumId")]
     pub album_id: Option<String>,
+
+    #[serde(rename = "ParentId")]
+    pub parent_id: Option<String>,
+
     #[serde(rename = "Type")]
     pub item_type: Option<String>,
+
     #[serde(rename = "SeriesId")]
     pub series_id: Option<String>,
+
     #[serde(rename = "SeasonId")]
     pub season_id: Option<String>,
+
     #[serde(rename = "SeriesName")]
     pub series_name: Option<String>,
+
     #[serde(rename = "ParentIndexNumber")]
     pub season_number: Option<i32>,
+
     #[serde(rename = "IndexNumber")]
     pub episode_number: Option<i32>,
+
     #[serde(rename = "ProductionYear")]
     pub production_year: Option<i32>,
+
+    // New: lets us detect if the track has its own Primary image.
+    // In your JSON this was like: "ImageTags": {"Primary":"..."} or {}
+    #[serde(rename = "ImageTags")]
+    pub image_tags: Option<HashMap<String, String>>,
 }
+
 
 pub fn pick_session_for_user(
     state: &mut crate::State,
