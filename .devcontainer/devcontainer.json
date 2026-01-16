@@ -9,9 +9,9 @@
 		"source=/run/user/1000/app/com.discordapp.Discord,target=/run/user/1000/app/com.discordapp.Discord,type=bind"
 	],
 
-	"remoteEnv": {
-		"XDG_RUNTIME_DIR": "/run/user/1000/app/com.discordapp.Discord"
-	}
+	// "remoteEnv": {
+	// 	"XDG_RUNTIME_DIR": "/run/user/1000/app/com.discordapp.Discord"
+	// }
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

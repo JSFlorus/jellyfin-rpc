@@ -4,8 +4,8 @@ mod covers;
 mod env_utils;
 mod jellyfin;
 mod discord;
-
 use crate::env_utils::load_local_env;
+use crate::env_utils::configure_discord_ipc_env;
 use crate::jellyfin::{pick_session_for_user, Session, NowPlayingItem};
 use crate::discord::{set_activity, clear_discord};
 
@@ -61,6 +61,7 @@ impl State {
 // ------------ Main ------------
 fn main() {
     load_local_env();
+    configure_discord_ipc_env();
 
     eprintln!("Loaded Discord Client ID: '{}'", *DISCORD_CLIENT_ID);
     let client = Client::new();

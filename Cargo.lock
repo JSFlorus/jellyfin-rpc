@@ -731,6 +731,7 @@ dependencies = [
  "ctrlc",
  "discord-rich-presence",
  "dotenvy",
+ "libc",
  "once_cell",
  "reqwest",
  "serde",
